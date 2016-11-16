@@ -14,7 +14,7 @@ cd ${VERSION}
 test $UID = 0 && chown -R root:root .
 
 echo "Files in config folder"
-ls config
+ls -la config
 
 mkdir -p ${INSTALL_DIR}
 
