@@ -18,6 +18,10 @@ ls -la config
 
 mkdir -p ${INSTALL_DIR}
 
+aclocal
+automake
+autoreconf -ivf
+
 # Configure the build
 ./configure --mandir=/usr/local/man --prefix=${INSTALL_DIR}
 
