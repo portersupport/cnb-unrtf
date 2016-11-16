@@ -29,7 +29,10 @@ autoreconf -ivf
 make
 
 # Install it, stripping the binary
+echo "install-strip"
 make install-strip
+
+ls -la ${INSTALL_DIR}
 
 echo "Complete!"
 echo "Building runtime environment for unrtf int ${BUILD_DIR}"
