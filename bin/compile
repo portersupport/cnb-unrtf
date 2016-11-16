@@ -19,7 +19,7 @@ ls -la config
 mkdir -p ${INSTALL_DIR}
 
 aclocal
-automake
+automake --add-missing
 autoreconf -ivf
 
 # Configure the build
