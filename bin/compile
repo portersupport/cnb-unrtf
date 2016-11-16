@@ -1,4 +1,4 @@
-# #!/bin/bash
+# # #!/bin/bash
 # BUILD_DIR=$1
 
 # INSTALL_DIR=$BUILD_DIR/vendor/unrtf/
@@ -33,37 +33,46 @@ BUILD_DIR=$1
 
 INSTALL_DIR=$BUILD_DIR/vendor/unrtf/
 
+UNRTF_DIR=${HOME}/vendor/unrtf/unrtf-0.21.9
+
 
 # GNU UnRTF 0.21.5
 # ================
 # Get it
-cd
-test -f installed/unrtf-0.21.5.tar.gz && mv installed/unrtf-0.21.5.tar.gz .
-test ! -f unrtf-0.21.5.tar.gz &&
- wget http://ftp.gnu.org/gnu/unrtf/unrtf-0.21.5.tar.gz
+# cd
+# test -f installed/unrtf-0.21.5.tar.gz && mv installed/unrtf-0.21.5.tar.gz .
+# test ! -f unrtf-0.21.5.tar.gz &&
+#  wget http://ftp.gnu.org/gnu/unrtf/unrtf-0.21.5.tar.gz
 
-# Verify tarball w/ md5sum:
-# (this came from my gpg-verified tarball)
-echo "83a43433530e988174098750b0c344ef  unrtf-0.21.5.tar.gz" | md5sum -c
+# # Verify tarball w/ md5sum:
+# # (this came from my gpg-verified tarball)
+# echo "83a43433530e988174098750b0c344ef  unrtf-0.21.5.tar.gz" | md5sum -c
 
-# Verify tarball w/ sha1sum:
-# (this also came from my gpg-verified tarball)
-echo "73d22805eb7a83edf5c3c27fe036e3c33248902d  unrtf-0.21.5.tar.gz" | \
- sha1sum -c
+# # Verify tarball w/ sha1sum:
+# # (this also came from my gpg-verified tarball)
+# echo "73d22805eb7a83edf5c3c27fe036e3c33248902d  unrtf-0.21.5.tar.gz" | \
+#  sha1sum -c
 
-# Verify tarball w/ gpg:
-( gpg --list-keys 3EC83090 > /dev/null 2>&1 || gpg --recv-keys 3EC83090 ) &&
- wget -nc http://ftp.gnu.org/gnu/unrtf/unrtf-0.21.5.tar.gz.sig &&
-  gpg --verify unrtf-0.21.5.tar.gz.sig && rm unrtf-0.21.5.tar.gz.sig
+# # Verify tarball w/ gpg:
+# ( gpg --list-keys 3EC83090 > /dev/null 2>&1 || gpg --recv-keys 3EC83090 ) &&
+#  wget -nc http://ftp.gnu.org/gnu/unrtf/unrtf-0.21.5.tar.gz.sig &&
+#   gpg --verify unrtf-0.21.5.tar.gz.sig && rm unrtf-0.21.5.tar.gz.sig
 
-# Extract the source
-mkdir -p -m 0700 src
-cd src
-find -maxdepth 1 -type d -name "unrtf-*" -exec rm -r {} \;
-find -maxdepth 1 -type d -name "unrtf_*" -exec rm -r {} \;
-tar xzvf unrtf-0.21.5.tar.gz
-cd unrtf-0.21.5
-test $UID = 0 && chown -R root:root .
+# # Extract the source
+# mkdir -p -m 0700 src
+# cd src
+# find -maxdepth 1 -type d -name "unrtf-*" -exec rm -r {} \;
+# find -maxdepth 1 -type d -name "unrtf_*" -exec rm -r {} \;
+# tar xzvf unrtf-0.21.5.tar.gz
+# cd unrtf-0.21.5
+# test $UID = 0 && chown -R root:root .
+
+echo "mkdir -p $INSTALL_DIR"
+mkdir -p $INSTALL_DIR
+echo "Untarring unrtf-0.21.9.tar.gz into ${INSTALL_DIR}"
+tar -zxvf unrtf-0.21.9.tar.gz -C $INSTALL_DIR
+echo "cd ${INSTALL_DIR}unrtf-0.21.9"
+cd ${INSTALL_DIR}unrtf-0.21.9
 
 # Configure the build
 ./configure --mandir=/usr/local/man --prefix=${INSTALL_DIR}
