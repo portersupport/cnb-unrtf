@@ -13,6 +13,8 @@ tar xzvf ../${VERSION}.tar.gz
 cd ${VERSION}
 test $UID = 0 && chown -R root:root .
 
+ls config
+
 # Configure the build
 ./configure --mandir=/usr/local/man --prefix=${INSTALL_DIR}
 
