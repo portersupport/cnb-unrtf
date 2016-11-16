@@ -33,6 +33,10 @@ echo "install-strip"
 make install-strip
 
 ls -la ${INSTALL_DIR}/share/unrtf
+mkdir ${INSTALL_DIR}/config
+cp -R ${INSTALL_DIR}/share/. ${INSTALL_DIR}/config
+echo "ls -la /config"
+ls -la ${INSTALL_DIR}/config
 
 echo "Complete!"
 echo "Building runtime environment for unrtf int ${BUILD_DIR}"
