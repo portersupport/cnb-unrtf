@@ -23,7 +23,7 @@ automake --add-missing
 autoreconf -ivf
 
 # Configure the build
-./configure --mandir=/usr/local/man --prefix=${INSTALL_DIR}
+./configure --prefix=${INSTALL_DIR}
 
 # Build it
 make
