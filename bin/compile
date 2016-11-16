@@ -1,4 +1,5 @@
 #!/bin/bash
+-e
 BUILD_DIR=$1
 
 VERSION=unrtf-0.21.9
@@ -19,7 +20,7 @@ test $UID = 0 && chown -R root:root .
 make
 
 # Install it, stripping the binary
-su -c "make install-strip"
+make install-strip
 
 echo "Complete!"
 echo "Building runtime environment for unrtf int ${BUILD_DIR}"
