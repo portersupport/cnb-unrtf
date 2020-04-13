@@ -1,19 +1,17 @@
 #!/bin/bash
 
-BUILD_DIR=$1
+echo "-----> Install unrtf"
 
+BUILD_DIR=$1
 VERSION=unrtf-0.21.9
 INSTALL_DIR=$BUILD_DIR/vendor/unrtf/
 
 # Extract the source
 mkdir -p -m 0700 src
 cd src
-tar xzvf ../${VERSION}.tar.gz
+tar xzf ../${VERSION}.tar.gz
 cd ${VERSION}
 test $UID = 0 && chown -R root:root .
-
-echo "Files in config folder"
-ls -la config
 
 mkdir -p ${INSTALL_DIR}
 
@@ -28,17 +26,10 @@ autoreconf -ivf
 make
 
 # Install it, stripping the binary
-echo "install-strip"
 make install-strip
 
-ls -la ${INSTALL_DIR}/share/unrtf
 mkdir ${INSTALL_DIR}/config
 cp -R ${INSTALL_DIR}/share/. ${INSTALL_DIR}/config
-echo "ls -la /config"
-ls -la ${INSTALL_DIR}/config
-
-echo "Complete!"
-echo "Building runtime environment for unrtf int ${BUILD_DIR}"
 
 mkdir -p $BUILD_DIR/.profile.d
 

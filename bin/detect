@@ -1,2 +1,4 @@
 #!/bin/sh
-echo "detect"
+
+echo "unrtf"
+exit 0
