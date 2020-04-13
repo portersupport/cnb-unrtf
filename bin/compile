@@ -3,8 +3,7 @@
 BUILD_DIR=$1
 
 VERSION=unrtf-0.21.9
-INSTALL_DIR=${HOME}/vendor/unrtf
-BIN_DIR=$INSTALL_DIR/bin
+INSTALL_DIR=$BUILD_DIR/vendor/unrtf/
 
 # Extract the source
 mkdir -p -m 0700 src
@@ -43,4 +42,4 @@ echo "Building runtime environment for unrtf int ${BUILD_DIR}"
 
 mkdir -p $BUILD_DIR/.profile.d
 
-echo "export PATH=\"${BIN_DIR}:\$PATH\"" > $BUILD_DIR/.profile.d/unrtf.sh
+echo 'export PATH="$PATH:${HOME}/vendor/unrtf/bin/"' > $BUILD_DIR/.profile.d/unrtf.sh
