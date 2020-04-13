@@ -1,9 +1,9 @@
 #!/bin/bash
--e
+
 BUILD_DIR=$1
 
 VERSION=unrtf-0.21.9
-INSTALL_DIR=/usr/share/unrtf/ #$BUILD_DIR/vendor/unrtf/
+INSTALL_DIR=$BUILD_DIR/vendor/unrtf/
 BIN_DIR=$INSTALL_DIR/bin
 
 # Extract the source
