@@ -3,7 +3,7 @@
 echo "-----> Install unrtf"
 
 BUILD_DIR=$1
-VERSION=unrtf-0.21.9
+VERSION=unrtf-0.21.10
 INSTALL_DIR=$BUILD_DIR/vendor/unrtf/
 
 # Extract the source
