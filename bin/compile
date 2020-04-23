@@ -23,7 +23,7 @@ autoreconf -ivf
 ./configure --prefix=${INSTALL_DIR}
 
 # Build it
-make
+make all
 
 # Install it, stripping the binary
 make install-strip
