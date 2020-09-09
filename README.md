@@ -1,6 +1,6 @@
 heroku-buildpack-unrtf
 ===========================
-Includes the libraries to compile and setup [unrtf](https://www.gnu.org/software/unrtf/) for use on Heroku
+Includes the libraries to compile and setup [unrtf]() for use on Heroku
 
 This buildpack is built to be used through [Using Multiple Buildpacks for an App](https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app).
 
@@ -20,3 +20,8 @@ Add the following to your .buildpacks/app.json:
 Or run the following from the heroku command line:
 
 `heroku buildpacks:add https://github.com/lucasKoeb/heroku-buildpack-unrtf`
+
+Unrtf
+=====
+
+[unrtf](https://www.gnu.org/software/unrtf/) is a RTF to HTML converter released by the [gnu project](https://www.gnu.org/).
