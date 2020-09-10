@@ -15,11 +15,11 @@ Usage
 
 Add the following to your .buildpacks/app.json:
 
-`https://github.com/lucasKoeb/heroku-buildpack-unrtf`
+`https://github.com/ateliware/heroku-buildpack-unrtf`
 
 Or run the following from the heroku command line:
 
-`heroku buildpacks:add https://github.com/lucasKoeb/heroku-buildpack-unrtf`
+`heroku buildpacks:add https://github.com/ateliware/heroku-buildpack-unrtf`
 
 Unrtf
 =====
