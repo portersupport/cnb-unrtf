@@ -2,9 +2,20 @@
 
 echo "-----> Install unrtf"
 
-BUILD_DIR=$1
-VERSION=unrtf-0.21.10
+BUILD_DIR="/workspace"
+CACHE_DIR=$1
+LAYERS_DIR=$1
+ENV_DIR="/platform/env/"
+BP_DIR=$CNB_BUILDPACK_DIR
+
+UNRTF_LAYER="${LAYERS_DIR}/unrtf"
+mkdir -p $UNRTF_LAYER
+echo -e '[types]\ncache = true\nlaunch = true\nbuild = true' >> ${UNRTF_LAYER}.toml
+PROFILE_PATH="${UNRTF_LAYER}/profile.d/unrtf.sh"
+
 INSTALL_DIR=$BUILD_DIR/vendor/unrtf/
+
+VERSION=unrtf-0.21.10
 
 # Extract the source
 mkdir -p -m 0700 src
@@ -31,6 +42,5 @@ make install-strip
 mkdir ${INSTALL_DIR}/config
 cp -R ${INSTALL_DIR}/share/. ${INSTALL_DIR}/config
 
-mkdir -p $BUILD_DIR/.profile.d
-
-echo 'export PATH="$PATH:${HOME}/vendor/unrtf/bin/"' > $BUILD_DIR/.profile.d/unrtf.sh
+mkdir -p $(dirname $PROFILE_PATH)
+echo "export PATH=\"/workspace/vendor/unrtf/bin/:\$PATH\"" > $PROFILE_PATH
