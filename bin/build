@@ -20,7 +20,7 @@ VERSION=unrtf-0.21.10
 # Extract the source
 mkdir -p -m 0700 src
 cd src
-tar xzf ../${VERSION}.tar.gz
+tar xzf $BP_DIR/${VERSION}.tar.gz
 cd ${VERSION}
 test $UID = 0 && chown -R root:root .
 
